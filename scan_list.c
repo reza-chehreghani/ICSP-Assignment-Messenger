@@ -1,7 +1,7 @@
 #include "main.h"
-user *scan_user_list(user *head, char *username)
+account *scan_user_list(account *head, char *username)
 {
-    for (user *current = head; current != NULL; current = current->next)
+    for (account *current = head; current != NULL; current = current->next)
         if (!strcmp(current->username, username))
             return current;
     return NULL;

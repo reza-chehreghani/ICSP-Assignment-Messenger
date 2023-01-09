@@ -11,14 +11,14 @@ typedef struct post
     char *text;
     struct post *next;
 } post;
-typedef struct user
+typedef struct account
 {
     char *username;
     char *password;
     post *post_head;
-    struct user *next;
-} user;
+    struct account *next;
+} account;
 void dynamic_input(char **address, char a, char b);
-user *scan_user_list(user *head, char *username);
+account *scan_user_list(account *head, char *username);
 post *scan_post_list(post *head, int post_id);
 #endif

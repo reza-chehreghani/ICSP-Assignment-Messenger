@@ -1,5 +1,5 @@
 #include "main.h"
-void like(user *user_head)
+void like(account *user_head)
 {
     char *username = NULL; /*Get username*/
     printf("Your choice username: ");
@@ -15,7 +15,7 @@ void like(user *user_head)
         return;
     }
     printf("%d\n", post_id);
-    user *user = scan_user_list(user_head, username); /*Find user*/
+    account *user = scan_user_list(user_head, username); /*Find user*/
     if (user == NULL)
     {
         printf("This username doesn't exist. Please try again.\n");

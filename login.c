@@ -1,7 +1,8 @@
 #include "main.h"
 #include "functions.h"
+#define POSTS "posts.txt"
 #define MAX_LENGTH_ORDER 9
-void login(user *user_head)
+void login(account *user_head)
 {
     char *username = NULL, *password = NULL; /*Get username and password*/
     printf("Your username: ");               /*Get username*/
@@ -9,7 +10,7 @@ void login(user *user_head)
     printf("%s\nYour password: ", username); /*Get password*/
     dynamic_input(&password, ' ', '\n');
     printf("%s\n", password);
-    user *user = scan_user_list(user_head, username); /*Find user*/
+    account *user = scan_user_list(user_head, username); /*Find user*/
     if (user == NULL)
     {
         printf("This username doesn't exist. Please try again.\n");
@@ -41,6 +42,11 @@ void login(user *user_head)
             break;
         else
             printf("You enter wrong order. Pleade try again.\n");
+        FILE *posts = fopen(POSTS, "w"); /*Write posts in a file*/
+        for (account *user_current = user_head; user_current != NULL; user_current = user_current->next)
+            for (post *post_current = user_current->post_head; post_current != NULL; post_current = post_current->next)
+                fprintf(posts, "%s %s %d\n", post_current->text, user_current->username, post_current->like);
+        fclose(posts);
     }
     printf("You loged out successfully\n\n");
     return;

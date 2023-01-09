@@ -1,5 +1,5 @@
 #include "main.h"
-void info(user *user)
+void info(account *user)
 {
     printf("Username: %s\nPassword: %s\n\n", user->username, user->password);
     post *current = user->post_head;
