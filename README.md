@@ -28,8 +28,6 @@ This repository contains a command-line messenger application written in C, deve
 - Efficient handling of user input and storage ensures smooth interaction.
 - Data structures are utilized for organizing users, posts, and interactions.
 
----
-
 ## File Structure
 
 This project is organized into several modular files, each responsible for specific functionalities:
